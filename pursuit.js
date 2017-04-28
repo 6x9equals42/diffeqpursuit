@@ -22,11 +22,11 @@ pred.src = "kozai.png";
 //prey movement
 var preyX = 50;
 var preyY = 50;
-var preyHeight = 500;
+var preyHeight = 600;
 var preySpeed = 0;
 var preydX = 0;
 var preydY = 0;
-var predX = 250;
+var predX = 50;
 var predY = 250;
 var preddX = 0;
 var preddY = 0;
@@ -48,8 +48,8 @@ var isLine = document.getElementById("line");
 updateParameters = function() {
   //alert("updating!");
   preyX = 50;
-  preyY = 50;
-  predX = 250;
+  preyY = 300;
+  predX = 50;
   predY = 250;
   preddX = 0;
   preddY = 0;
@@ -81,13 +81,13 @@ var updateObjects = function() {
 
 
 
-      if (preyX>750){
+      if (preyX>1350){
           updateParameters();
       }
       preyX += preydX;
 
-      if (preyY>50 + zigHeight) preydY = -preydY;
-      if (preyY<50) preydY = -preydY;
+      if (preyY>300 + zigHeight/2) preydY = -preydY;
+      if (preyY<300 - zigHeight/2) preydY = -preydY;
       preyY += preydY;
 
 
@@ -95,14 +95,19 @@ var updateObjects = function() {
 
     }
     if (isLine.checked) {
-      if (preyX > 750) updateParameters();
+      if (preyX > 1350) updateParameters();
       preyX += preySpeed;
     }
     var xDist = preyX - predX;
     var yDist = preyY - predY;
 
-    var predaX = inertia * xDist - preddX * drag;
-    var predaY = inertia * yDist - preddY * drag;
+  //  var predaX = inertia * xDist - preddX * drag;
+  //  var predaY = inertia * yDist - preddY * drag;
+
+
+
+    var predaX = inertia * xDist /**// Math.sqrt(xDist*xDist + yDist * yDist)/**/- preddX*drag;
+    var predaY = inertia * yDist /**// Math.sqrt(xDist*xDist + yDist * yDist)/**/- preddY*drag;
 
     preddX += predaX;
     preddY += predaY;

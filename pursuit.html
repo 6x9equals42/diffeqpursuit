@@ -27,18 +27,18 @@ function typeCheck() {
 
   </div>
   <br />
-Predator Spring Strength <input id="kozStick" type="range" name="inertia" min=".01" max=".2" step=".01" value=".1">
+Predator Spring Strength <input id="kozStick" type="range" name="inertia" min=".00" max=".2" step=".01" value=".1">
 
-&nbsp;Predator Dragginess <input id="kozDrag" type="range" name="drag" min=".1" max=".2" step=".01" value=".1">
+&nbsp;Predator Dragginess <input id="kozDrag" type="range" name="drag" min=".00" max=".2" step=".01" value=".1">
 
 
 &nbsp;Prey Speed <input id="preySpeed" type="range" name="preyspeed" min=".3" max="5" step=".1" value="1">
 <br />
 
 
- <button onclick="callUpdate()" value="Update">hi</button>
+ <button onclick="callUpdate()" value="Update">Update Settings</button>
     <div id="window">
-        <canvas id="canvas" width="800" height="600">
+        <canvas id="canvas" width="1400" height="700">
         </canvas>
     </div>
 
